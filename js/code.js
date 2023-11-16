@@ -41,5 +41,40 @@ function showQuestion() {
   questionContainer.style.backgroundColor = '#fff';
 }
 
+//checks the answer if its correct or wrong.
+function checkAnswer(selectedOption) {
+  const feedbackElement = document.getElementById('feedback');
+  const questionContainer = document.getElementById('question-container');
+  const options = document.querySelectorAll('.option');
+
+  const correctAnswer = questions[currentQuestion].correct_answer;
+
+  //Questioncontainer changes color
+  /*if (selectedOption === correctAnswer) {
+    //if answer is correct --> green
+    feedbackElement.innerHTML = 'Correct!';
+    questionContainer.style.backgroundColor = '#8bc34a';
+  } else {
+    //if answer is wrong --> red
+    feedbackElement.innerHTML = 'Wrong!';
+    questionContainer.style.backgroundColor = '#ff5722';
+  }*/
+
+  //Options changes color
+  options.forEach(option => {
+    if (option.textContent === correctAnswer) {
+      // Correct answer will turn green
+      option.style.backgroundColor = '#8bc34a';
+    } else if (option.textContent === selectedOption) {
+      // Clicked incorrect answer will turn red
+      option.style.backgroundColor = '#ff5722';
+    }
+  });
+  //shows if the answer is correct or wrong by text (for colorblind people)
+  feedbackElement.innerHTML = selectedOption === correctAnswer ? 'Correct!' : 'Wrong!';
+}
+
+
+
 // Fetch questions
 getQuestions();
