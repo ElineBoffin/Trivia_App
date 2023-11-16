@@ -74,6 +74,21 @@ function checkAnswer(selectedOption) {
   feedbackElement.innerHTML = selectedOption === correctAnswer ? 'Correct!' : 'Wrong!';
 }
 
+//Delay on quiestion click, to show the correct answer
+function nextQuestion() {
+    var delay = 1000;
+  setTimeout( next, delay )
+  
+function next() {
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+        showQuestion();
+    } else {
+        alert('Trivia completed!');
+    }
+}   
+}
+
 
 
 // Fetch questions
