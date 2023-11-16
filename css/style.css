@@ -1,0 +1,149 @@
+body {
+    
+    font-family: 'Open Sans', sans-serif;
+    background-image: url('../images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    
+}
+
+.quizLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 50%;*/
+}
+
+.card__img {      
+    width: 20px;
+    height: 20px;
+  }
+
+  #imgBasic {
+    height: 77%;
+  }
+  
+  .card__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;      
+    background-color: #eee;
+    transform: translateY(100%);
+    transition: .2s ease-in-out;
+  }
+  
+  .card__header {
+    position: relative;
+    display: flex;
+    padding: 1em;
+    transform: translateY(-100%);
+    transition: .2s ease-in-out;
+
+    background-color: #40798C;
+    /*background-color: #7278D7;*/
+  }
+  
+  .card__thumb {
+    width: 75px;
+    height: 70px;         
+  }
+  
+  .card__title {
+    font-size: 16px;
+    margin-top: 10px;
+    color: black;
+    margin-left: 20px;
+  }
+  
+  .card__tagline {
+    display: block;
+    margin: 1em 0;
+    font-family: "MockFlowFont";  
+    font-size: .8em; 
+    color: #D7BDCA;  
+  }
+
+  .card__description {
+    padding: 0 2em 2em;
+    margin: 0;
+    /*color: black;*/
+    background-color: #eee;
+    font-family: "MockFlowFont";   
+    /*display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;*/
+  }
+
+  /*@media only screen and (min-width: 1440px ) {
+    .card {
+        height: 90%;
+        width: 90%;
+      }
+  }
+
+  @media only screen and (min-width: 1440px ) {
+    .card {
+        margin-right: 150px;
+      }
+  }*/
+
+.card {
+  display: inline-block;
+  width: 310px;
+  height: 310px;
+  border-radius: 30px;
+  border: none;
+  overflow: hidden;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+  margin-top: 30px;
+  margin-right: 70px;
+  position: relative;
+  justify-content: center;
+}
+
+.cards {
+    margin-left: 100px;
+}
+
+.profile-img {
+  height: 55%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /*width: 50%*/
+}
+
+.btn {
+  width: 80px;
+  color: white;
+  /*border: 2px solid;*/
+}
+
+.btn:hover {
+  color: white;
+}
+
+.btnMode {
+  margin-left: 15px;
+}
+
+#btnEasy {
+  /*color: green;*/
+  border: 2px solid #63A46C;
+}
+
+#btnEasy:hover {
+  background-color: #63A46C;
+}
+
+#btnMedium {
+  border: 2px solid #FFC108;
+}
+
+#btnHard {
+  border: 2px solid #DC3545;
+}
