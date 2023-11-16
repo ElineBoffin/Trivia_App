@@ -84,6 +84,8 @@ function checkAnswer(selectedOption) {
       // Clicked incorrect answer will turn red
       option.style.backgroundColor = '#ff5722';
     }
+    //multiple click disabled
+    option.onclick = null;
   });
   //shows if the answer is correct or wrong by text (for colorblind people)
   feedbackElement.innerHTML = selectedOption === correctAnswer ? 'Correct!' : 'Wrong!';
