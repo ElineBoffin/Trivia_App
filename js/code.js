@@ -1,14 +1,28 @@
 let currentQuestion = 0;
 let questions = [];
 
+//shuffle answers every round;
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
 //fetch quiestions from api
 async function getQuestions() {
   fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=multiple').then(result => result.json()).then(
     data => {
         questions = data.results;
+        shuffleQuestions();
         showQuestion();
     }
   ).catch();
+}
+
+//shuffles question so every answer is on a different place.
+function shuffleQuestions() {
+  shuffle(questions);
 }
 
 //show the questions and answers
@@ -27,6 +41,7 @@ function showQuestion() {
 
   //Shows all answer options
   const allOptions = [...current.incorrect_answers, current.correct_answer];
+  shuffle(allOptions);
 
   allOptions.forEach((option) => {
     const optionElement = document.createElement('div');
@@ -74,22 +89,20 @@ function checkAnswer(selectedOption) {
   feedbackElement.innerHTML = selectedOption === correctAnswer ? 'Correct!' : 'Wrong!';
 }
 
+
 //Delay on quiestion click, to show the correct answer
 function nextQuestion() {
-    var delay = 1000;
-  setTimeout( next, delay )
-  
-function next() {
-    currentQuestion++;
-    if (currentQuestion < questions.length) {
-        showQuestion();
-    } else {
-        alert('Trivia completed!');
-    }
-}   
+        var delay = 1000;
+      setTimeout( next, delay )
+      
+    function next() {
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+            showQuestion();
+        } else {
+            alert('Trivia completed!');
+        }
+    }   
 }
-
-
-
-// Fetch questions
+// Fetch questions and shuffles questions on reload page.
 getQuestions();
