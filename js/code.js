@@ -103,6 +103,8 @@ function nextQuestion() {
             showQuestion();
         } else {
             alert('Trivia completed!');
+            //after completing redirect to homepage
+            window.location.href = "../../html/index.html";
         }
     }   
 }
