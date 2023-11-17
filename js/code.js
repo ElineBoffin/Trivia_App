@@ -151,6 +151,8 @@ const checkUrl = (url) => {
 const currentUrl = window.location.href;
 checkUrl(currentUrl);
 
+
+
 // Function to update score display
 function updateScoreDisplay() {
   document.getElementById('score').innerHTML = "Score: " + score;
