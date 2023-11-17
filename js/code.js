@@ -136,11 +136,20 @@ function nextQuestion() {
         }
     }   
 }
-// Fetch questions and shuffles questions on reload page.
-getQuestionsEasy();
-getQuestionsMedium();
-getQuestionsHard();
+// check specific string is present in url
+const checkUrl = (url) => {
+  if (url.includes('easy')) {
+    getQuestionsEasy();
+  } else if (url.includes('medium')) {
+    getQuestionsMedium();
+  } else if (url.includes('hard')) {
+    getQuestionsHard();
+  }
+}
 
+// retrieve the current url and pass it to checkUrl
+const currentUrl = window.location.href;
+checkUrl(currentUrl);
 
 // Function to update score display
 function updateScoreDisplay() {
