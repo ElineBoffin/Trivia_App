@@ -125,6 +125,29 @@ function nextQuestion() {
         }
     }   
 }
+
+// check specific string is present in url
+const checkUrl = (url) => {
+  if (url.includes('easy')) {
+    getQuestionsEasy();
+  } else if (url.includes('medium')) {
+    getQuestionsMedium();
+  } else if (url.includes('hard')) {
+    getQuestionsHard();
+  }
+}
+
+// retrieve the current url and pass it to checkUrl
+const currentUrl = window.location.href;
+checkUrl(currentUrl);
+
+
+
+// Function to update score display
+function updateScoreDisplay() {
+  document.getElementById('score').innerHTML = "Score: " + score;
+}
+=======
 // Function to update score display
 function updateScoreDisplay() {
   if (document.getElementById('score')) {
@@ -171,8 +194,3 @@ document.getElementById('play-again').addEventListener('click', function() {
 document.getElementById('go-back').addEventListener('click', function() {
     window.location.href = "../../html/index.html"; 
 });
-
-// Fetch questions and shuffles questions on reload page.
-getQuestionsEasy();
-getQuestionsMedium();
-getQuestionsHard();
