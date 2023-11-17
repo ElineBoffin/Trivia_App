@@ -128,11 +128,11 @@ function nextQuestion() {
 
 // check specific string is present in url
 const checkUrl = (url) => {
-  if (url.includes('easy')) {
+  if (url.includes('Easy')) {
     getQuestionsEasy();
-  } else if (url.includes('medium')) {
+  } else if (url.includes('Medium')) {
     getQuestionsMedium();
-  } else if (url.includes('hard')) {
+  } else if (url.includes('Hard')) {
     getQuestionsHard();
   }
 }
@@ -140,7 +140,6 @@ const checkUrl = (url) => {
 // retrieve the current url and pass it to checkUrl
 const currentUrl = window.location.href;
 checkUrl(currentUrl);
-
 
 
 // Function to update score display
