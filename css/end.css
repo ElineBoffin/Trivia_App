@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+  }
+
+
+
+
+#user-name {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+
