@@ -172,3 +172,7 @@ document.getElementById('go-back').addEventListener('click', function() {
     window.location.href = "../../html/index.html"; 
 });
 
+// Fetch questions and shuffles questions on reload page.
+getQuestionsEasy();
+getQuestionsMedium();
+getQuestionsHard();
