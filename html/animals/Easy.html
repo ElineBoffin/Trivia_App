@@ -3,13 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/questions.css" />
     <link rel="stylesheet" href="../../css/Quiz.css">
     <title>AnimalsEasy</title>
   </head>
+  <style>
+  </style>
   <body>
-    <div id="score"></div>
+    <!--<div id="score"></div>-->
+    <div class="Scores">
+      <button disabled type="button" id="btnScore" class="btn btn-primary">Score:
+      <span id="score" class="badge"></span></button>
+    </div>
+    
+    
     <div id="question-container">
       <h1>Trivia Game Easy</h1>
       <div>

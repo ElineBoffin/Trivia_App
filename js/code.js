@@ -144,7 +144,7 @@ checkUrl(currentUrl);
 // Function to update score display
 function updateScoreDisplay() {
   if (document.getElementById('score')) {
-    document.getElementById('score').innerHTML = "Score: " + score;
+    document.getElementById('score').innerHTML = score;
   }
 }
 

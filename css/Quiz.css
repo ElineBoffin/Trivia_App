@@ -1,7 +1,16 @@
-body {
 
-}
 
 .banner {
     width: 100%;
 }
+.badge {
+    border-radius: 50%;
+    background-color: white;
+    color: black;
+  }
+
+  #btnScore {
+    font-size: 30px;
+    margin-right: 15px;
+    float: right;
+  }
