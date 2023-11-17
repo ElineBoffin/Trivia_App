@@ -1,5 +1,7 @@
 let currentQuestion = 0;
 let questions = [];
+let score = 0;
+updateScoreDisplay();
 
 //shuffle answers every round;
 function shuffle(array) {
@@ -78,11 +80,15 @@ function checkAnswer(selectedOption) {
   //Options changes color
   options.forEach(option => {
     if (option.textContent === correctAnswer) {
-      // Correct answer will turn green
+      // Correct answer will turn green and update score
       option.style.backgroundColor = '#8bc34a';
+      score++;
+      updateScoreDisplay();
     } else if (option.textContent === selectedOption) {
-      // Clicked incorrect answer will turn red
+      // Clicked incorrect answer will turn red and not update score
       option.style.backgroundColor = '#ff5722';
+      score--;
+      updateScoreDisplay();
     }
     //multiple click disabled
     option.onclick = null;
@@ -108,3 +114,9 @@ function nextQuestion() {
 }
 // Fetch questions and shuffles questions on reload page.
 getQuestions();
+
+
+// Function to update score display
+function updateScoreDisplay() {
+  document.getElementById('score').innerHTML = "Score: " + score;
+}

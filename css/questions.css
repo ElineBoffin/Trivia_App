@@ -36,3 +36,8 @@ body {
     margin-top: 20px;
     font-weight: bold;
   }
+  #score {
+    text-align: end;
+    font-size: xx-large;
+    margin: 30px;
+  }
