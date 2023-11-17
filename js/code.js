@@ -88,17 +88,6 @@ function checkAnswer(selectedOption) {
 
   const correctAnswer = questions[currentQuestion].correct_answer;
 
-  //Questioncontainer changes color
-  /*if (selectedOption === correctAnswer) {
-    //if answer is correct --> green
-    feedbackElement.innerHTML = 'Correct!';
-    questionContainer.style.backgroundColor = '#8bc34a';
-  } else {
-    //if answer is wrong --> red
-    feedbackElement.innerHTML = 'Wrong!';
-    questionContainer.style.backgroundColor = '#ff5722';
-  }*/
-
   //Options changes color
   options.forEach(option => {
     if (option.textContent === correctAnswer) {
@@ -136,13 +125,12 @@ function nextQuestion() {
         }
     }   
 }
-// Fetch questions and shuffles questions on reload page.
-getQuestionsEasy();
-getQuestionsMedium();
-getQuestionsHard();
-
-
 // Function to update score display
 function updateScoreDisplay() {
   document.getElementById('score').innerHTML = "Score: " + score;
 }
+
+// Fetch questions and shuffles questions on reload page.
+getQuestionsEasy();
+getQuestionsMedium();
+getQuestionsHard();

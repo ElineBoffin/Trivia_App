@@ -28,9 +28,9 @@ body {
     transition: background-color 0.3s ease;
   }
 
-  /*.option:hover {
+  .option:hover {
     background-color: #e0e0e0;
-  }*/
+  }
 
   #feedback {
     margin-top: 20px;
