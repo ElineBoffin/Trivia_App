@@ -11,9 +11,31 @@ function shuffle(array) {
   }
 }
 
-//fetch quiestions from api
-async function getQuestions() {
+//fetch easy quiestions from api
+async function getQuestionsEasy() {
   fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=multiple').then(result => result.json()).then(
+    data => {
+        questions = data.results;
+        shuffleQuestions();
+        showQuestion();
+    }
+  ).catch();
+}
+
+//fetch easy quiestions from api
+async function getQuestionsMedium() {
+  fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple').then(result => result.json()).then(
+    data => {
+        questions = data.results;
+        shuffleQuestions();
+        showQuestion();
+    }
+  ).catch();
+}
+
+//fetch easy quiestions from api
+async function getQuestionsHard() {
+  fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=hard&type=multiple').then(result => result.json()).then(
     data => {
         questions = data.results;
         shuffleQuestions();
@@ -115,7 +137,9 @@ function nextQuestion() {
     }   
 }
 // Fetch questions and shuffles questions on reload page.
-getQuestions();
+getQuestionsEasy();
+getQuestionsMedium();
+getQuestionsHard();
 
 
 // Function to update score display
