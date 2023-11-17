@@ -142,10 +142,7 @@ const currentUrl = window.location.href;
 checkUrl(currentUrl);
 
 
-// Function to update score display
-function updateScoreDisplay() {
-  document.getElementById('score').innerHTML = "Score: " + score;
-}
+
 
 // Function to update score display
 function updateScoreDisplay() {
@@ -171,14 +168,14 @@ if (!quizScore) {
 // Display the quiz score
 const urlParams = new URLSearchParams(window.location.search);
 const finalscore = parseInt(urlParams.get('score'));
-document.getElementById('quiz-score').textContent = 'Your score is: ' + quizScore;
+document.getElementById('quiz-score').textContent = 'Your score is: ' + finalscore;
 
 // Save the score to local storage with the user's name
 document.getElementById('save-score').addEventListener('click', function() {
     let userName = document.getElementById('user-name').value;
     if (userName) {
         let scores = JSON.parse(localStorage.getItem('scores') || '[]');
-        scores.push({ name: userName, score: quizScore });
+        scores.push({ name: userName, score: finalscore });
         localStorage.setItem('scores', JSON.stringify(scores));
         alert('Your score has been saved.');
     }
