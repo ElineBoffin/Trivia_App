@@ -170,12 +170,16 @@ document.getElementById('save-score').addEventListener('click', function() {
     }
 });
 
-// Play again button
-document.getElementById('play-again').addEventListener('click', function() {
-    window.location.href = "../../html/animals/Easy.html"; 
-});
 
-// Go back to homepage button
-document.getElementById('go-back').addEventListener('click', function() {
-    window.location.href = "../../html/index.html"; 
+// Create a function to handle button click
+function goToPage(path) {
+  window.location.href = path;
+}
+
+// Get the button element
+const goback = document.getElementById('go-back');
+
+// Attach the click event handler to the button
+goback.addEventListener('click', function() {
+  goToPage('index.html'); 
 });
