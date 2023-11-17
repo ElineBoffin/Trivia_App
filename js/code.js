@@ -111,7 +111,7 @@ function checkAnswer(selectedOption) {
 
 //Delay on quiestion click, to show the correct answer
 function nextQuestion() {
-        var delay = 1000;
+        let delay = 1000;
       setTimeout( next, delay )
       
     function next() {
@@ -120,17 +120,55 @@ function nextQuestion() {
             showQuestion();
         } else {
             alert('Trivia completed!');
-            //after completing redirect to homepage
-            window.location.href = "../../html/index.html";
+            //after completing redirect to end page
+            window.location.href = "../../html/End.html?score=" + score;
         }
     }   
 }
 // Function to update score display
 function updateScoreDisplay() {
-  document.getElementById('score').innerHTML = "Score: " + score;
+  if (document.getElementById('score')) {
+    document.getElementById('score').innerHTML = "Score: " + score;
+  }
 }
 
-// Fetch questions and shuffles questions on reload page.
-getQuestionsEasy();
-getQuestionsMedium();
-getQuestionsHard();
+// Function to handle quiz completion
+function handleQuizCompletion() {
+  // Calculate final score based on user's answers
+  // ... calculate score based on correct/incorrect answers
+  
+  // Save the final score to local storage
+  localStorage.setItem('quizScore', score);
+}
+// Get the quiz score from local storage
+let quizScore = localStorage.getItem('quizScore');
+if (!quizScore) {
+    quizScore = 0;
+}
+
+// Display the quiz score
+const urlParams = new URLSearchParams(window.location.search);
+const finalscore = parseInt(urlParams.get('score'));
+document.getElementById('quiz-score').textContent = 'Your score is: ' + quizScore;
+
+// Save the score to local storage with the user's name
+document.getElementById('save-score').addEventListener('click', function() {
+    let userName = document.getElementById('user-name').value;
+    if (userName) {
+        let scores = JSON.parse(localStorage.getItem('scores') || '[]');
+        scores.push({ name: userName, score: quizScore });
+        localStorage.setItem('scores', JSON.stringify(scores));
+        alert('Your score has been saved.');
+    }
+});
+
+// Play again button
+document.getElementById('play-again').addEventListener('click', function() {
+    window.location.href = "../../html/animals/Easy.html"; 
+});
+
+// Go back to homepage button
+document.getElementById('go-back').addEventListener('click', function() {
+    window.location.href = "../../html/index.html"; 
+});
+
