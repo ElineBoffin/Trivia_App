@@ -119,7 +119,6 @@ function nextQuestion() {
         if (currentQuestion < questions.length) {
             showQuestion();
         } else {
-            alert('Trivia completed!');
             //after completing redirect to end page
             window.location.href = "../../html/End.html?score=" + score;
         }
@@ -142,8 +141,6 @@ const currentUrl = window.location.href;
 checkUrl(currentUrl);
 
 
-
-
 // Function to update score display
 function updateScoreDisplay() {
   if (document.getElementById('score')) {
@@ -151,14 +148,6 @@ function updateScoreDisplay() {
   }
 }
 
-// Function to handle quiz completion
-function handleQuizCompletion() {
-  // Calculate final score based on user's answers
-  // ... calculate score based on correct/incorrect answers
-  
-  // Save the final score to local storage
-  localStorage.setItem('quizScore', score);
-}
 // Get the quiz score from local storage
 let quizScore = localStorage.getItem('quizScore');
 if (!quizScore) {
