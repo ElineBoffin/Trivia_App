@@ -27,7 +27,7 @@ const flags = [
         correctAnswer: "Morocco"
     },
     {
-        imgSrc: "../../images/flags/South Korea.png",
+        imgSrc: "../../images/flags/SouthKorea.png",
         options: ["Japan", "South Korea", "Cyprus", "Malaysia"],
         correctAnswer: "South Korea"
     },
@@ -47,7 +47,7 @@ const flags = [
         correctAnswer: "Israel"
     },
     {
-        imgSrc: "../../images/flags/South Africa.png",
+        imgSrc: "../../images/flags/SouthAfrica.png",
         options: ["South Sudan", "Ugandan", "Zimbabwe", "South Africa"],
         correctAnswer: "South Africa"
     },

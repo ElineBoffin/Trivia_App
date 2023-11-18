@@ -17,7 +17,7 @@ const flags = [
         correctAnswer: "Sri Lanka"
     },
     {
-        imgSrc: "../../images/flags/BosniaandHerzegovina.png",
+        imgSrc: "../../images/flags/Bosnia.png",
         options: ["Iceland", "Finland", "Norway", "Poland"],
         correctAnswer: "Bosnia and Herzegovina"
     },
@@ -60,6 +60,8 @@ const nextButton = document.getElementById("next-btn");
 function showQuestion() {
     const currentFlag = flags[currentQuestion];
     questionContainer.innerHTML = `<img src="${currentFlag.imgSrc}" alt="Flag">`;
+    questionContainer.style.width = 150;
+    questionContainer.style.width = 100;
     
     optionsContainer.innerHTML = "";
     for (let i = 0; i < currentFlag.options.length; i++) {
