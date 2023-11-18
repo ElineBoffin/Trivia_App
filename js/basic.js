@@ -141,9 +141,9 @@ const currentUrl = window.location.href;
 checkUrl(currentUrl);
 
 
-//Max amount of scores displayed
+/* //Max amount of scores displayed
 const MAX_HIGH_SCORES = 10;
-const scoreArea = document.getElementById('display-score');
+const scoreArea = document.getElementById('display-score'); */
 
 // Function to update score display
 function updateScoreDisplay() {
@@ -152,13 +152,13 @@ function updateScoreDisplay() {
   }
 }
 
-// Get the quiz score from local storage
+/* // Get the quiz score from local storage
 let quizScore = localStorage.getItem('quizScore');
 if (!quizScore) {
     quizScore = '[]';
-}
+} */
 
-// Display the quiz score
+/* // Display the quiz score
 const urlParams = new URLSearchParams(window.location.search);
 const finalscore = parseInt(urlParams.get('score'));
 document.getElementById('quiz-score').textContent = 'Your score is: ' + finalscore;
@@ -205,4 +205,4 @@ const goback = document.getElementById('go-back');
 // Attach the click event handler to the button
 goback.addEventListener('click', function() {
   goToPage('index.html'); 
-});
+}); */

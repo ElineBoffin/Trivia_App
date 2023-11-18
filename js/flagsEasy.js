@@ -1,4 +1,6 @@
 let currentQuestion = 0;
+let score = 0;
+updateScoreDisplay();
 
 const flags = [
     {
@@ -76,12 +78,18 @@ function checkAnswer(answer, selectedOption) {
 
     // Highlight correct answer in green
     const correctOptionIndex = currentFlag.options.indexOf(currentFlag.correctAnswer);
-    optionsContainer.children[correctOptionIndex].style.backgroundColor = "green";
+    optionsContainer.children[correctOptionIndex].style.backgroundColor = "#8bc34a";
 
-    // Highlight selected option in red if it's wrong
+    // Highlight selected option in red if it's wrong and update the score
     if (answer !== currentFlag.correctAnswer) {
-        selectedOption.style.backgroundColor = "red";
+        selectedOption.style.backgroundColor = "#ff5722";
+    } else {
+        // Increment the score if the answer is correct
+        score++;
     }
+
+    // Update the score display
+    updateScoreDisplay();
 
     // Disable further clicks on options
     for (let i = 0; i < optionsContainer.children.length; i++) {
@@ -105,9 +113,19 @@ function checkAnswer(answer, selectedOption) {
             optionsContainer.children[correctOptionIndex].style.backgroundColor = "";
             selectedOption.style.backgroundColor = "";
 
-            window.location.href = "../../html/index.html";
+            window.location.href = `../../html/End.html?score=${score}`;
         }, 1000);
     }
 }
 
+
 showQuestion();
+
+
+
+// Function to update score display
+function updateScoreDisplay() {
+  if (document.getElementById('score')) {
+    document.getElementById('score').innerHTML = score;
+  }
+}
