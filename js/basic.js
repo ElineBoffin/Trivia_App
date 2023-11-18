@@ -1,4 +1,4 @@
-let currentQuestion = 0;
+let currentQuestionBasic = 0;
 let questions = [];
 let score = 0;
 updateScoreDisplay();
@@ -13,7 +13,7 @@ function shuffle(array) {
 
 //fetch easy quiestions from api
 async function getQuestionsEasy() {
-  fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=easy&type=multiple').then(result => result.json()).then(
+  fetch('https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple').then(result => result.json()).then(
     data => {
         questions = data.results;
         shuffleQuestions();
@@ -24,7 +24,7 @@ async function getQuestionsEasy() {
 
 //fetch easy quiestions from api
 async function getQuestionsMedium() {
-  fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple').then(result => result.json()).then(
+  fetch('https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple').then(result => result.json()).then(
     data => {
         questions = data.results;
         shuffleQuestions();
@@ -35,7 +35,7 @@ async function getQuestionsMedium() {
 
 //fetch easy quiestions from api
 async function getQuestionsHard() {
-  fetch('https://opentdb.com/api.php?amount=10&category=27&difficulty=hard&type=multiple').then(result => result.json()).then(
+  fetch('https://opentdb.com/api.php?amount=10&category=9&difficulty=hard&type=multiple').then(result => result.json()).then(
     data => {
         questions = data.results;
         shuffleQuestions();
@@ -59,7 +59,7 @@ function showQuestion() {
   const optionsContainer = document.getElementById('options-container');
   const feedbackElement = document.getElementById('feedback');
 
-  const current = questions[currentQuestion];
+  const current = questions[currentQuestionBasic];
   questionElement.innerHTML = current.question;
   optionsContainer.innerHTML = '';
 
@@ -86,7 +86,7 @@ function checkAnswer(selectedOption) {
   const questionContainer = document.getElementById('question-container');
   const options = document.querySelectorAll('.option');
 
-  const correctAnswer = questions[currentQuestion].correct_answer;
+  const correctAnswer = questions[currentQuestionBasic].correct_answer;
 
   //Options changes color
   options.forEach(option => {
@@ -111,12 +111,12 @@ function checkAnswer(selectedOption) {
 
 //Delay on quiestion click, to show the correct answer
 function nextQuestion() {
-        var delay = 1000;
+        let delay = 1000;
       setTimeout( next, delay )
       
     function next() {
-        currentQuestion++;
-        if (currentQuestion < questions.length) {
+        currentQuestionBasic++;
+        if (currentQuestionBasic < questions.length) {
             showQuestion();
         } else {
             //after completing redirect to end page
@@ -127,11 +127,11 @@ function nextQuestion() {
 
 // check specific string is present in url
 const checkUrl = (url) => {
-  if (url.includes('Easy')) {
+  if (url.includes('EasyBasic')) {
     getQuestionsEasy();
-  } else if (url.includes('Medium')) {
+  } else if (url.includes('MediumBasic')) {
     getQuestionsMedium();
-  } else if (url.includes('Hard')) {
+  } else if (url.includes('HardBasic')) {
     getQuestionsHard();
   }
 }
@@ -140,21 +140,18 @@ const checkUrl = (url) => {
 const currentUrl = window.location.href;
 checkUrl(currentUrl);
 
-//Max amount of scores displayed
-const MAX_HIGH_SCORES = 10;
-const scoreArea = document.getElementById('display-score');
 
 // Function to update score display
 function updateScoreDisplay() {
   if (document.getElementById('score')) {
-    document.getElementById('score').innerHTML = "Score: " + score;
+    document.getElementById('score').innerHTML = score;
   }
 }
 
 // Get the quiz score from local storage
 let quizScore = localStorage.getItem('quizScore');
 if (!quizScore) {
-    quizScore = '[]';
+    quizScore = 0;
 }
 
 // Display the quiz score
@@ -162,35 +159,16 @@ const urlParams = new URLSearchParams(window.location.search);
 const finalscore = parseInt(urlParams.get('score'));
 document.getElementById('quiz-score').textContent = 'Your score is: ' + finalscore;
 
-function displayScores() {
-  const scoreArea = document.getElementById('display-score');
-  scoreArea.innerHTML = `<h2>Best Scores</h2><ul id="highScoresList"></ul>`;
-  const highScoresList = document.getElementById('highScoresList');
-  
-  let scores = JSON.parse(localStorage.getItem('scores') || '[]');
-
-  highScoresList.innerHTML = scores
-    .map(score => {
-      return `<li class="scoresList">${score.name} - ${score.score}</li>`;
-    })
-    .join('');
-}
-
-
 // Save the score to local storage with the user's name
 document.getElementById('save-score').addEventListener('click', function() {
     let userName = document.getElementById('user-name').value;
     if (userName) {
         let scores = JSON.parse(localStorage.getItem('scores') || '[]');
         scores.push({ name: userName, score: finalscore });
-        scores.sort((a, b) => b.score - a.score);
-        scores.splice(MAX_HIGH_SCORES);
         localStorage.setItem('scores', JSON.stringify(scores));
-        displayScores();
+        alert('Your score has been saved.');
     }
 });
-
-
 
 
 // Create a function to handle button click
@@ -205,6 +183,3 @@ const goback = document.getElementById('go-back');
 goback.addEventListener('click', function() {
   goToPage('index.html'); 
 });
-
-// Call displayScores() function when the page loads
-displayScores();
