@@ -19,12 +19,12 @@ const flags = [
         correctAnswer: "Sri Lanka"
     },
     {
-        imgSrc: "../../images/flags/BosniaandHerzegovina.png",
+        imgSrc: "../../images/flags/Bosnia.png",
         options: ["Solomon Islands", "Czechia", "Malaysia", "Bosnia and Herzegovina"],
         correctAnswer: "Bosnia and Herzegovina"
     },
     {
-        imgSrc: "../../images/flags/SolomonIslands.png",
+        imgSrc: "../../images/flags/Solomon.png",
         options: ["Solomon Islands", "Paraguay", "Tanzania", "Honduras"],
         correctAnswer: "Solomon Islands"
     },
@@ -62,6 +62,8 @@ const nextButton = document.getElementById("next-btn");
 function showQuestion() {
     const currentFlag = flags[currentQuestion];
     questionContainer.innerHTML = `<img src="${currentFlag.imgSrc}" alt="Flag">`;
+    questionContainer.style.width = 150;
+    questionContainer.style.width = 100;
     
     optionsContainer.innerHTML = "";
     for (let i = 0; i < currentFlag.options.length; i++) {
