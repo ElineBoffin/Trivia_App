@@ -111,7 +111,7 @@ function checkAnswer(selectedOption) {
 
 //Delay on quiestion click, to show the correct answer
 function nextQuestion() {
-        let delay = 1000;
+        var delay = 1000;
       setTimeout( next, delay )
       
     function next() {
@@ -140,6 +140,9 @@ const checkUrl = (url) => {
 const currentUrl = window.location.href;
 checkUrl(currentUrl);
 
+//Max amount of scores displayed
+const MAX_HIGH_SCORES = 10;
+const scoreArea = document.getElementById('display-score');
 
 // Function to update score display
 function updateScoreDisplay() {
@@ -151,7 +154,7 @@ function updateScoreDisplay() {
 // Get the quiz score from local storage
 let quizScore = localStorage.getItem('quizScore');
 if (!quizScore) {
-    quizScore = 0;
+    quizScore = '[]';
 }
 
 // Display the quiz score
@@ -159,16 +162,38 @@ const urlParams = new URLSearchParams(window.location.search);
 const finalscore = parseInt(urlParams.get('score'));
 document.getElementById('quiz-score').textContent = 'Your score is: ' + finalscore;
 
+function displayScores() {
+  const scoreArea = document.getElementById('display-score');
+  scoreArea.innerHTML = `<h2>Best Scores</h2><ul id="highScoresList"></ul>`;
+  const highScoresList = document.getElementById('highScoresList');
+  
+  let scores = JSON.parse(localStorage.getItem('scores') || '[]');
+
+  highScoresList.innerHTML = scores
+    .map(score => {
+      return `<li class="scoresList">${score.name} - ${score.score} - ${score.dateTime}</li>`;
+    })
+    .join('');
+}
+
+
+
 // Save the score to local storage with the user's name
 document.getElementById('save-score').addEventListener('click', function() {
-    let userName = document.getElementById('user-name').value;
-    if (userName) {
-        let scores = JSON.parse(localStorage.getItem('scores') || '[]');
-        scores.push({ name: userName, score: finalscore });
-        localStorage.setItem('scores', JSON.stringify(scores));
-        alert('Your score has been saved.');
-    }
+  let userName = document.getElementById('user-name').value;
+  if (userName) {
+      let scores = JSON.parse(localStorage.getItem('scores') || '[]');
+      let currentDate = new Date().toLocaleString(); // Get current date and time
+      scores.push({ name: userName, score: finalscore, dateTime: currentDate });
+      scores.sort((a, b) => b.score - a.score);
+      scores.splice(MAX_HIGH_SCORES);
+      localStorage.setItem('scores', JSON.stringify(scores));
+      displayScores();
+  }
 });
+
+
+
 
 
 // Create a function to handle button click
@@ -183,3 +208,6 @@ const goback = document.getElementById('go-back');
 goback.addEventListener('click', function() {
   goToPage('index.html'); 
 });
+
+// Call displayScores() function when the page loads
+displayScores();
