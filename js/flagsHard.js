@@ -3,52 +3,55 @@ let currentQuestion = 0;
 const flags = [
     {
         imgSrc: "../../images/flags/Eritrea.png",
-        options: ["Cyprus", "Eritrea", "San Marino", "Uruguay"],
+        options: ["Gambia", "Eritrea", "Barbados", "Moldova"],
         correctAnswer: "Eritrea"
     },
     {
         imgSrc: "../../images/flags/Kenya.png",
-        options: ["Kenya", "Norway", "Georgia", "Switzerland"],
+        options: ["Libya", "South Africa", "Zambia", "Kenya"],
         correctAnswer: "Kenya"
     },
     {
         imgSrc: "../../images/flags/SriLanka.png",
-        options: ["Albania", "Iraq", "Serbia", "Egypt"],
+        options: ["Sri Lanka", "Paraguay", "Guatemala", "Suriname"],
         correctAnswer: "Sri Lanka"
     },
     {
         imgSrc: "../../images/flags/Bosnia.png",
         options: ["Iceland", "Finland", "Norway", "Poland"],
+
+        imgSrc: "../../images/flags/BosniaandHerzegovina.png",
+        options: ["Solomon Islands", "Czechia", "Malaysia", "Bosnia and Herzegovina"],
         correctAnswer: "Bosnia and Herzegovina"
     },
     {
         imgSrc: "../../images/flags/SolomonIslands.png",
-        options: ["Monaco", "Vietnam", "Morocco", "China"],
+        options: ["Solomon Islands", "Paraguay", "Tanzania", "Honduras"],
         correctAnswer: "Solomon Islands"
     },
     {
-        imgSrc: "../../images/flags/South Chile.png",
-        options: ["South Sudan", "Ugandan", "Zimbabwe", "South Africa"],
+        imgSrc: "../../images/flags/Chile.png",
+        options: ["Cuba", "Costa Rica", "Chile", "Dominican Republic"],
         correctAnswer: "Chile"
     },
     {
         imgSrc: "../../images/flags/Fiji.png",
-        options: ["Japan", "South Korea", "Cyprus", "Malaysia"],
+        options: ["Fiji", "Australia", "New Zealand", "Tuvalu"],
         correctAnswer: "Fiji"
     },
     {
         imgSrc: "../../images/flags/Uzbekistan.png",
-        options: ["United Kingdom", "New Zealand", "Marshall Islands", "Australia"],
+        options: ["Ethipia", "Tajikistan", "Uzbekistan", "Djibouti"],
         correctAnswer: "Uzbekistan"
     },
     {
         imgSrc: "../../images/flags/Madagascar.png",
-        options: ["Russia", "Yemen", "Serbia", "Netherlands"],
+        options: ["Malawi", "Madagascar", "Serbia", "Belarus"],
         correctAnswer: "Madagascar"
     },
     {
         imgSrc: "../../images/flags/Latvia.png",
-        options: ["Honduras", "Israel", "Somalia", "Argentina"],
+        options: ["Austria", "Poland", "Tunisia", "Latvia"],
         correctAnswer: "Latvia"
     },
 ];
