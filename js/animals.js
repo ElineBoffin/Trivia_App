@@ -171,24 +171,27 @@ function displayScores() {
 
   highScoresList.innerHTML = scores
     .map(score => {
-      return `<li class="scoresList">${score.name} - ${score.score}</li>`;
+      return `<li class="scoresList">${score.name} - ${score.score} - ${score.dateTime}</li>`;
     })
     .join('');
 }
 
 
+
 // Save the score to local storage with the user's name
 document.getElementById('save-score').addEventListener('click', function() {
-    let userName = document.getElementById('user-name').value;
-    if (userName) {
-        let scores = JSON.parse(localStorage.getItem('scores') || '[]');
-        scores.push({ name: userName, score: finalscore });
-        scores.sort((a, b) => b.score - a.score);
-        scores.splice(MAX_HIGH_SCORES);
-        localStorage.setItem('scores', JSON.stringify(scores));
-        displayScores();
-    }
+  let userName = document.getElementById('user-name').value;
+  if (userName) {
+      let scores = JSON.parse(localStorage.getItem('scores') || '[]');
+      let currentDate = new Date().toLocaleString(); // Get current date and time
+      scores.push({ name: userName, score: finalscore, dateTime: currentDate });
+      scores.sort((a, b) => b.score - a.score);
+      scores.splice(MAX_HIGH_SCORES);
+      localStorage.setItem('scores', JSON.stringify(scores));
+      displayScores();
+  }
 });
+
 
 
 
