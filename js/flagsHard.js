@@ -18,14 +18,11 @@ const flags = [
     },
     {
         imgSrc: "../../images/flags/Bosnia.png",
-        options: ["Iceland", "Finland", "Norway", "Poland"],
-
-        imgSrc: "../../images/flags/BosniaandHerzegovina.png",
         options: ["Solomon Islands", "Czechia", "Malaysia", "Bosnia and Herzegovina"],
         correctAnswer: "Bosnia and Herzegovina"
     },
     {
-        imgSrc: "../../images/flags/SolomonIslands.png",
+        imgSrc: "../../images/flags/Solomon.png",
         options: ["Solomon Islands", "Paraguay", "Tanzania", "Honduras"],
         correctAnswer: "Solomon Islands"
     },
