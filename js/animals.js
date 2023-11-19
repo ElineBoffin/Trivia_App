@@ -211,3 +211,12 @@ goback.addEventListener('click', function() {
 
 // Call displayScores() function when the page loads
 displayScores();
+
+
+// randomizer for confettis
+const confettis = document.querySelectorAll('.confetti');
+
+confettis.forEach((confetti, index) => {
+  confetti.style.left = `${Math.random() * 100}%`; // Random left position between 0% and 100%
+  confetti.style.animationDelay = `-${Math.random() * 5}s`; // Random animation delay between 0s and 5s
+});
