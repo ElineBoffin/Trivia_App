@@ -164,14 +164,14 @@ document.getElementById('quiz-score').textContent = 'Your score is: ' + finalsco
 
 function displayScores() {
   const scoreArea = document.getElementById('display-score');
-  scoreArea.innerHTML = `<h2>Best Scores</h2><ul id="highScoresList"></ul>`;
+  scoreArea.innerHTML = `<h2>Best Scores</h2><table id="highScoresTable"><thead><tr><th>Name</th><th>Score</th><th>Date</th></tr></thead><tbody id="highScoresList"></tbody></table>`;
   const highScoresList = document.getElementById('highScoresList');
   
   let scores = JSON.parse(localStorage.getItem('scores') || '[]');
 
   highScoresList.innerHTML = scores
     .map(score => {
-      return `<li class="scoresList">${score.name} - ${score.score} - ${score.dateTime}</li>`;
+      return `<tr><td>${score.name}</td><td>${score.score}</td><td>${score.dateTime}</td></tr>`;
     })
     .join('');
 }
