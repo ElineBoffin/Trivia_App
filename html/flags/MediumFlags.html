@@ -3,21 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/questions.css">
     <link rel="stylesheet" href="../../css/Quiz.css">
     <title>Flag Quiz</title>
 </head>
 <body>
-  <div class="Scores">
-    <button type="button" id="btnScore" class="btn btn-primary">Score:
-    <span id="score" class="badge"></span></button>
-  </div>
     <div id="question-container">
         <h1>Flag Quiz</h1>
         <div id="question"></div>
         <div id="options-container" onclick="nextQuestion()"></div>
-        <img class="banner" src="../../images/flagBanner.png">
+        <hr class="line">
+      <div class="Scores">
+        <button type="button" id="btnScore" class="btn btn-primary">Score:
+        <span id="score" class="badge"></span></button>
+      </div>
+
+      <div class="Scores">
+        <button type="button" id="btnScore" class="btn btn-primary">Category:
+        <span id="scoreM" class="badge">Aniamls</span></button>
+      </div>
+      
+      <div class="difficultyM">
+        <button type="button" id="btnDifficulty" class="btn btn-success">Difficulty:
+        <span id="difficultyM" class="badgeM">Medium</span></button>
+      </div>
     </div>
 
     <script src="../../js/flagsMedium.js"></script>
