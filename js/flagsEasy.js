@@ -15,7 +15,7 @@ const flags = [
     },
     {
         imgSrc: "../../images/flags/France.png",
-        options: ["Netherlands", "sweden", "France", "Brazil"],
+        options: ["Netherlands", "Sweden", "France", "Brazil"],
         correctAnswer: "France"
     },
     {

@@ -50,7 +50,7 @@ const flags = [
     },
     {
         imgSrc: "../../images/flags/SouthAfrica.png",
-        options: ["South Sudan", "Ugandan", "Zimbabwe", "South Africa"],
+        options: ["South Sudan", "Uganda", "Zimbabwe", "South Africa"],
         correctAnswer: "South Africa"
     },
 ];
