@@ -190,11 +190,18 @@ document.getElementById('save-score').addEventListener('click', function() {
       localStorage.setItem('scores', JSON.stringify(scores));
       displayScores();
   }
+})
+
+//Clear localstorage
+document.getElementById('btnClear').addEventListener('click', function () {
+  var result = window.confirm("Weet je zeker dat je je scores wilt verwijderen?");
+  if (result) {
+    localStorage.clear();
+    displayScores();
+  } else {
+    displayScores();
+  }
 });
-
-
-
-
 
 // Create a function to handle button click
 function goToPage(path) {

@@ -227,3 +227,20 @@ ul#highScoresList {
 #highScoresTable th {
   background-color: #f2f2f2;
 }
+
+#btnClear {
+  margin-top: 25px;
+}
+
+.clear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.imgRemove {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
