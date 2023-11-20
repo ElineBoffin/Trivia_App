@@ -73,7 +73,18 @@
 
   @media only screen and (max-width: 851px ) {
 
-      #btnScore {
+    .bottomButtons {
+      display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    }  
+    .bottomButtons > div {
+      margin: 2px 0;
+    }
+
+    #btnScore {
         font-size: 20px;
         margin-right: 15px;
         float: right;
@@ -91,7 +102,7 @@
         /*margin-bottom: 200px;*/
       }
       .banner {
-        margin-top: -220px;
+        margin-top: -180px;
       }
   }
 

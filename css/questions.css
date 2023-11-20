@@ -16,7 +16,7 @@ body {
 
   #question-container {
     width: 800px;
-    height: 900px;
+    height: 950px;
     margin: 50px auto;
     padding: 20px;
     background-color: #fff;
@@ -54,14 +54,14 @@ body {
 
     @media only screen and (max-width: 851px ) {
       #question-container {
-          height: 700px;
+          height: 750px;
           width: 700px;
         }
     }
 
     @media only screen and (max-width: 727px ) {
       #question-container {
-          height: 700px;
+          height: 750px;
           width: 500px;
         }
     }
