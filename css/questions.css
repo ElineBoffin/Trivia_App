@@ -13,6 +13,12 @@ body {
     height: 100%;
 
   }
+  h1 {
+    padding: 10px;
+    font-family: 'Bungee Inline', sans-serif;
+    color: red;
+    font-size: 100px;
+  }
 
   #question-container {
     width: 800px;
@@ -54,14 +60,14 @@ body {
 
     @media only screen and (max-width: 851px ) {
       #question-container {
-          height: 750px;
+          height: 850px;
           width: 700px;
         }
     }
 
     @media only screen and (max-width: 727px ) {
       #question-container {
-          height: 750px;
-          width: 500px;
+          height: 850px;
+          width: 600px;
         }
     }

@@ -9,33 +9,40 @@
     />
     <link rel="stylesheet" href="../../css/questions.css" />
     <link rel="stylesheet" href="../../css/Quiz.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap"
+      rel="stylesheet"
+    />
     <title>Flag Quiz</title>
   </head>
   <body>
+    <h1>Trivia Game</h1>
     <div id="question-container">
-      <h1>Flag Quiz</h1>
       <div id="question"></div>
       <div id="options-container" onclick="nextQuestion()"></div>
       <hr class="line" />
-      <div class="Scores">
-        <button type="button" id="btnScore" class="btn btn-primary">
-          Score: <span id="score" class="badge"></span>
-        </button>
-      </div>
+      <div class="bottomButtons">
+        <div class="Scores">
+          <button type="button" id="btnScore" class="btn btn-primary">
+            Score: <span id="score" class="badge"></span>
+          </button>
+        </div>
 
-      <div class="Scores">
-        <button type="button" id="btnScore" class="btn btn-primary">
-          Category: <span id="score" class="badge">Flags</span>
-        </button>
-      </div>
+        <div class="Scores">
+          <button type="button" id="btnScore" class="btn btn-primary">
+            Category: <span id="score" class="badge">Flags</span>
+          </button>
+        </div>
 
-      <div class="difficulty">
-        <button type="button" id="btnDifficulty" class="btn btn-success">
-          Difficulty: <span id="difficulty" class="badge">Easy</span>
-        </button>
+        <div class="difficulty">
+          <button type="button" id="btnDifficulty" class="btn btn-success">
+            Difficulty: <span id="difficulty" class="badge">Easy</span>
+          </button>
+        </div>
       </div>
     </div>
-
     <script src="../../js/flagsEasy.js"></script>
   </body>
 </html>
