@@ -164,7 +164,7 @@ document.getElementById('quiz-score').textContent = 'Your score is: ' + finalsco
 
 function displayScores() {
   const scoreArea = document.getElementById('display-score');
-  scoreArea.innerHTML = `<h2>Best Scores</h2><table id="highScoresTable"><thead><tr><th>Name</th><th>Score</th><th>Date</th></tr></thead><tbody id="highScoresList"></tbody></table>`;
+  scoreArea.innerHTML = `<h2>Hall of Fame</h2><table id="highScoresTable"><thead><tr><th>Name</th><th>Score</th><th>Date</th></tr></thead><tbody id="highScoresList"></tbody></table>`;
   const highScoresList = document.getElementById('highScoresList');
   
   let scores = JSON.parse(localStorage.getItem('scores') || '[]');
